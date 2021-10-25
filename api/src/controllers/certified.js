@@ -11,8 +11,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const getCertifiedByUser = ('/certified', rescue(async (req, res, next) => {
+  console.log(req.body);
   const certified = await service.findCertified(req.body);
-
+  
   if (certified.error) {
     return next({
       statusCode: 404,
