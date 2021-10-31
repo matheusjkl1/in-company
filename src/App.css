@@ -14,6 +14,24 @@
   color: white;
 }
 
+.App-header-example {
+  color: white;
+  background-color:#161B22;
+  bottom: 0;
+  clear: both;
+  display:block;
+  margin: 2em;
+  opacity: 40%;
+  position: fixed;
+  right: 10px;
+  text-align: center;
+  width: 30vh;
+}
+
+.App-header-example p{
+  padding: 0.5em;
+}
+
 .App-header-Img {
   width: 50px;
 }

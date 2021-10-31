@@ -39,9 +39,6 @@ function Headers({ logout }) {
                 <a className="navbar-item" href="/certified">
                   Meus Certificados
                 </a>
-                <a className="navbar-item" href="/suporte">
-                  Ajuda e Suporte
-                </a>
                 { logout && 
                 <a
                   className="navbar-item"

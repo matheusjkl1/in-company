@@ -45,6 +45,19 @@ function Login() {
             </article>
           }
           </form>
+        <div className="App-header-example ">
+          Usuarios Cadastrados
+          <strong><p>User</p></strong>
+          Número da Matrícula:<br/>
+          12345789<br/>
+          Senha:<br/>
+          123456789
+          <strong><p>Admin</p></strong>
+          Número da Matrícula:<br/>
+          12345789<br/>
+          Senha:<br/>
+          123456789
+        </div>
         </div>
       </div>
   )
