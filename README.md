@@ -27,14 +27,13 @@ No diretório do projeto, você deve executar para iniciar o Front-end:
 
 ### `yarn start`
 
-Abra [http://localhost:3000](http://localhost:3000) para ver a aplicação no navegador.
+Abra `[http://localhost:3000]`(http://localhost:3000) para ver a aplicação no navegador.
 
 Após isso entre no diretório api com o comando:
 
 
 No diretório do projeto, você deve executar para iniciar o Front-end:
+ * `cd api
 
-### `yarn test`
+### `npm run dev`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
