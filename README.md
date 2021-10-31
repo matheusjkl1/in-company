@@ -26,7 +26,7 @@ npm install
 No diretório do projeto, você deve executar para iniciar o Front-end:
 
 ```sh
-`yarn star
+yarn star
 ```
 
 Abra `[http://localhost:3000]`(http://localhost:3000) para ver a aplicação no navegador.
