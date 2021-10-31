@@ -29,7 +29,7 @@ No diretório do projeto, você deve executar para iniciar o Front-end:
 yarn start
 ```
 
-Abra [http://localhost:3000]`(http://localhost:3000)` para ver a aplicação no navegador.
+Abra [http://localhost:3000](http://localhost:3000) para ver a aplicação no navegador.
 
 Após isso entre no diretório api com o comando:
 
