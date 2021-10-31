@@ -45,14 +45,14 @@ npm run dev
 
 #### Usuarios Cadastrados
 
-```User
-
+```
+User
 Número da Matrícula:
 12345789
 Senha:
 123456789```
 
-```Admin
+Admin
 
 Número da Matrícula:
 12345789
