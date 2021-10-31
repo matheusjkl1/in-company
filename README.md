@@ -23,7 +23,7 @@ npm install
 ```
 ./coupledb
 ```
-No diretório do projeto, você deve executar para iniciar o Front-end:
+### No diretório do projeto, você deve executar o seguinte comando para iniciar o Front-end:
 
 ```sh
 yarn start
@@ -34,7 +34,7 @@ Abra [http://localhost:3000](http://localhost:3000) para ver a aplicação no na
 Após isso entre no diretório api com o comando:
 
 
-No diretório do projeto, você deve executar para iniciar o Front-end:
+### No diretório do projeto, você deve executar o seguinte comando para iniciar o Front-end:
  * `cd api`
 
 ```sh
