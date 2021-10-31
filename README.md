@@ -57,7 +57,7 @@ Senha:
 
 ` Admin `
 ```
-[i]Número da Matrícula:
+Número da Matrícula:
 12345789
 Senha:
 123456789
