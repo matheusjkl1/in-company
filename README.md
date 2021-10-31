@@ -1,18 +1,38 @@
-# Getting Started with Create React App
+# Desafio Mundo Jix In-Company - Grupo Tiradentes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Pré-requisitos
+  1. `Node >= 14.x.x`
+  2. `Npm`
+  3. `MongoDB`
 
-## Available Scripts
+1. Clone o repositório
+  * `git clone git@github.com:matheusjkl1/in-company.git`.
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd in-company`
+ 
+## Para Iniciar o Projeto
 
-In the project directory, you can run:
+### Execute o seguinte comando para instalar as dependências de desenvolvimento do projeto: 
+```sh
+npm install
+```
+
+## Implementações técnicas
+
+### Na raiz do diretório do projeto, execute o seguinte comando que fará a restauração da base de dados
+```
+./coupledb
+```
+No diretório do projeto, você deve executar para iniciar o Front-end:
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Abra [http://localhost:3000](http://localhost:3000) para ver a aplicação no navegador.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Após isso entre no diretório api com o comando:
+
+
+No diretório do projeto, você deve executar para iniciar o Front-end:
 
 ### `yarn test`
 
