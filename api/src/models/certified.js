@@ -83,6 +83,16 @@ const getAllCertified = async () => {
     });
 };
 
+const deleteCertified = async (id) => {
+  return connection()
+    .then((db) => db.collection('certified').deleteOne({ _id: ObjectID(id) }))
+    .then((item) => {
+      return {
+        item,
+      };
+    });
+};
+
 module.exports = {
   registerCertified,
   getAllCertifiedByUser,
@@ -91,4 +101,5 @@ module.exports = {
   updateCertified,
   getAllCertified,
   updateStatus,
+  deleteCertified,
 }

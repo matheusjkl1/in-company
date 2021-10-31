@@ -80,6 +80,8 @@ function Provider({ children }) {
       const response = await axios.get(`http://localhost:3001/certified/${id}`, {
         headers: { authorization: token },
       });
+      const { certifiedName, certifiedDescript, certifiedImage, hours} = response.data
+      setCertifiedData({name: certifiedName, descript: certifiedDescript, file: certifiedImage, hours: hours })
       setCertifiedById(response.data);
     } catch (error) {
       console.log(error);
@@ -109,6 +111,7 @@ function Provider({ children }) {
           },
         }
       );
+      // router.push('/certified/')
     } catch (error) {
       console.log(error);
     }
@@ -126,6 +129,18 @@ function Provider({ children }) {
       console.log(error);
     }
   };
+
+  const deleteCertified = async (id, token) => {
+    try {
+      await axios.delete(`http://localhost:3001/certified/${id}`, {
+        headers: {
+          authorization: token,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const contextValue = {
     signIn,
@@ -145,6 +160,7 @@ function Provider({ children }) {
     getAllCertified,
     notFound,
     updateCertifiedStatus,
+    deleteCertified,
   };
 
   return (

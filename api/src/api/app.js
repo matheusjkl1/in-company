@@ -32,6 +32,8 @@ app.post('/certified', certifiedController.registerCertified)
 
 app.put('/certified/:id', certifiedController.updateCertified)
 
+app.delete('/certified/:id', certifiedController.deleteCertified)
+
 app.use(middlewares)
 
 module.exports = app;

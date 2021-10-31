@@ -44,14 +44,18 @@ function CertifiedDetails({ match }) {
       }
     }, [getLocalStorageUser, router, userToken]);
   
+    console.log(certifiedData);
+
     const sendData = async (e) => {
-      e.preventDefault()
+      console.log(certifiedData.hours);
+      e.preventDefault();
       const fd = new FormData();
       fd.append('name', certifiedData.name);
       fd.append('file', certifiedData.file);
       fd.append('descript', certifiedData.descript);
       fd.append('hours', certifiedData.hours);
-      updateCertified(match.params.id, userToken, fd)
+      updateCertified(match.params.id, userToken, fd);
+      window.location.reload();
     };
 
     useEffect(() => {
@@ -73,92 +77,96 @@ function CertifiedDetails({ match }) {
     return (
       <div>
         <Headers logout />
-        <form className="box App--Register-register-form">
-          <div className="field">
-          <h1 className="title is-4">Editar Certificado de Horas Complementares</h1>
-            <div className="control">
-              <div className="field">
-                <img src={certifiedById && `http://localhost:3001/${certifiedById.certifiedImage}`} alt="certifiedImage" />
-                <label className="label" htmlFor="file" >Imagem do Certificado</label>
-                <div className={!certifiedById ? "control is-loading" : "control"}>
-                  <input
-                      type="file"
+        <div className="App--Details-details-main-div">
+          <form className="box App--Details-details-form">
+            <div className="field">
+            <h1 className="title is-4">Editar Certificado de Horas Complementares</h1>
+              <div className="control">
+                <div className="field">
+                  <div className="App--Details-details-div-img">
+                    <img className="App--Details-details-img" src={certifiedById && `http://localhost:3001/${certifiedById.certifiedImage}`} alt="certifiedImage" />
+                  </div>
+                  <label className="label" htmlFor="file" >Imagem do Certificado</label>
+                  <div className={!certifiedById ? "control is-loading" : "control"}>
+                    <input
+                        type="file"
+                        className="input is-link"
+                        placeholder="Nome do Certificado"
+                        id="file"
+                        name="file"
+                        onChange={fileSelectedHandle}
+                      />
+                    </div>
+                  </div>
+                <div className="field">
+                  <label className="label" htmlFor="name">Nome do Certificado</label>
+                  <div className={!certifiedById ? "control is-loading" : "control"}>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text" minLength={9}
                       className="input is-link"
                       placeholder="Nome do Certificado"
-                      id="file"
-                      name="file"
-                      onChange={fileSelectedHandle}
+                      onChange={handleChange}
+                      defaultValue={certifiedById && certifiedById.certifiedName}
                     />
                   </div>
                 </div>
-              <div className="field">
-                <label className="label" htmlFor="name">Nome do Certificado</label>
-                <div className={!certifiedById ? "control is-loading" : "control"}>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text" minLength={9}
-                    className="input is-link"
-                    placeholder="Nome do Certificado"
+                <div className="field">
+                  <label className="label" htmlFor="descript">Descrição</label>
+                  <textarea
+                    type="text" minLength={15}
+                    className="textarea is-link"
+                    placeholder="Descrição do Certificado"
+                    id="descript"
+                    name="descript"
                     onChange={handleChange}
-                    defaultValue={certifiedById && certifiedById.certifiedName}
+                    defaultValue={certifiedById && certifiedById.certifiedDescript}
                   />
                 </div>
-              </div>
-              <div className="field">
-                <label className="label" htmlFor="descript">Descrição</label>
-                <textarea
-                  type="text" minLength={15}
-                  className="textarea is-link"
-                  placeholder="Descrição do Certificado"
-                  id="descript"
-                  name="descript"
-                  onChange={handleChange}
-                  defaultValue={certifiedById && certifiedById.certifiedDescript}
-                />
-              </div>
-              <div className="field" htmlFor="hours">
-                <label className="label">Duração</label>
-                <div className={!certifiedById ? "control is-loading" : "control"}>
-                  <input
-                    type="number" minLength={1}
-                    className="input is-link"
-                    placeholder="Duração(em horas)"
-                    id="hours"
-                    name="hours"
-                    onChange={handleChange}
-                    defaultValue={certifiedById && certifiedById.hours}
-                  />
+                <div className="field" htmlFor="hours">
+                  <label className="label">Duração</label>
+                  <div className={!certifiedById ? "control is-loading" : "control"}>
+                    <input
+                      type="number" minLength={1}
+                      className="input is-link"
+                      placeholder="Duração(em horas)"
+                      id="hours"
+                      name="hours"
+                      onChange={handleChange}
+                      defaultValue={certifiedById && certifiedById.hours}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <article class="message is-warning">
-            <div class="message-body">
-              <strong>Atenção!</strong>&ensp;
-              ao atualizar seu certicado ele sera&ensp;
-              <strong>reavaliado</strong> portanto,&ensp;
-              o status entrada novamente em&ensp;
-              <strong>Não-Homologado</strong>
-            </div>
-          </article>
-          <div className="App--Update-register-buttons">
-            <input
-              type="submit"
-              className="button is-info"
-              onClick={(e) => ( sendData(e))}
-            />
-            <Link
-              to={{ pathname: '/certified/' }}
-            >
-              <button
-                className="button is-danger is-light"
+            <article class="message is-warning">
+              <div class="message-body">
+                <strong>Atenção!</strong>&ensp;
+                Ao atualizar seu certicado, ele será&ensp;
+                <strong>reavaliado</strong>, portanto
+                o status entrará novamente em&ensp;
+                <strong>Não-Homologado</strong>
+              </div>
+            </article>
+            <div className="App--Update-register-buttons">
+              <input
+                type="submit"
+                className="button is-info"
+                onClick={(e) => ( sendData(e))}
+              />
+              <Link
+                to={{ pathname: '/certified/' }}
               >
-                Cancelar
-              </button>
-            </Link>
-          </div>
-        </form>
+                <button
+                  className="button is-danger is-light"
+                >
+                  Cancelar
+                </button>
+              </Link>
+            </div>
+          </form>
+        </div>
         <ButtonAddCertified />
       </div>
   )

@@ -48,62 +48,64 @@ function RegisterCertified() {
   return (
     <div>
       <Headers logout />
-      <form className="box App--Register-register-form">
-        <div className="field">
-        <h1 className="title is-4">Cadastrar Certificado de Horas Complementares</h1>
-          <div className="control">
-            <div className="field">
-              <label className="label" htmlFor="file" >Imagem do Certificado</label>
-              <input
-                  type="file"
+      <div className="App--Register-register-div">
+        <form className="box App--Register-register-form">
+          <div className="field">
+          <h1 className="title is-4">Cadastrar Certificado de Horas Complementares</h1>
+            <div className="control">
+              <div className="field">
+                <label className="label" htmlFor="file" >Imagem do Certificado</label>
+                <input
+                    type="file"
+                    className="input is-link"
+                    placeholder="Nome do Certificado"
+                    id="file"
+                    name="file"
+                    onChange={fileSelectedHandle}
+                  />
+                </div>
+              <div className="field">
+                <label className="label" htmlFor="name">Nome do Certificado</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text" minLength={9}
                   className="input is-link"
                   placeholder="Nome do Certificado"
-                  id="file"
-                  name="file"
-                  onChange={fileSelectedHandle}
+                  onChange={handleChange}
                 />
               </div>
-            <div className="field">
-              <label className="label" htmlFor="name">Nome do Certificado</label>
-              <input
-                id="name"
-                name="name"
-                type="text" minLength={9}
-                className="input is-link"
-                placeholder="Nome do Certificado"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="field">
-              <label className="label" htmlFor="descript">Descrição</label>
-              <textarea
-                type="text" minLength={15}
-                className="textarea is-link"
-                placeholder="Descrição do Certificado"
-                id="descript"
-                name="descript"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="field" htmlFor="hours">
-              <label className="label">Duração</label>
-              <input
-                type="number" minLength={1}
-                className="input is-link"
-                placeholder="Duração(em horas)"
-                id="hours"
-                name="hours"
-                onChange={handleChange}
-              />
+              <div className="field">
+                <label className="label" htmlFor="descript">Descrição</label>
+                <textarea
+                  type="text" minLength={15}
+                  className="textarea is-link"
+                  placeholder="Descrição do Certificado"
+                  id="descript"
+                  name="descript"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="field" htmlFor="hours">
+                <label className="label">Duração</label>
+                <input
+                  type="number" minLength={1}
+                  className="input is-link"
+                  placeholder="Duração(em horas)"
+                  id="hours"
+                  name="hours"
+                  onChange={handleChange}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <input
-          type="submit"
-          className="button is-info"
-          onClick={(e) => ( sendData(e))}
-        />
-      </form>
+          <input
+            type="submit"
+            className="button is-info"
+            onClick={(e) => ( sendData(e))}
+          />
+        </form>
+      </div>
     </div>
   )
 }

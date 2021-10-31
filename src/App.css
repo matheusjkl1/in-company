@@ -9,7 +9,7 @@
   display: flex;
   min-height: 10vh;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -29,7 +29,6 @@
 .App-header-navbar-menu-buttons a {
   background-color: #094067;
 }
-
 
 .App-link {
   color: #61dafb;
@@ -94,12 +93,14 @@
 .App--Certified-List {
   padding: 1px;
   margin: 0.5em;
-  max-width: 60vh;
+  min-width: 55vh;
+  max-width: 55vh;
 }
 
 .App--Certified-Not-Found {
   min-width: 50vh;
 }
+
 .App--Certified-Footer {
   color: white;
   background-color:#3da9fc;
@@ -115,6 +116,11 @@
   width: 10vh;
 }
 
+.App--Register-register-div {
+  display: flex;
+  justify-content: center;
+}
+
 .App--Register-register-form {
   margin: 1em;
 }
@@ -125,4 +131,25 @@
 
 .App--Update-register-buttons button {
   margin-left: 1em;
+}
+
+.App--Details-details-main-div {
+  display: flex;
+  justify-content: center;
+}
+
+.App--Details-details-main-div h1 {
+  text-align: center;
+}
+
+.App--Details-details-div-img {
+  text-align: center;
+}
+
+.App--Details-details-img {
+  max-width: 80%;
+}
+
+.App--Details-details-form {
+  max-width: 110vh;
 }

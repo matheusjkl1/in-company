@@ -58,7 +58,14 @@ const registerCertified = ('/certified', [validateJwt, upload.single('file'), re
 
 const updateCertified = ('/certified', [validateJwt, upload.single('file'), rescue(async (req, res, next) => {
   const { id } = req.params;
-  const certified = await service.updateCertified(id, req.file.path, req.user, req.body);
+  let image = ""
+  if (req.file) {
+    image = req.file.path
+  } else {
+    image = req.body.file
+  }
+
+  const certified = await service.updateCertified(id, image, req.user, req.body);
   if (certified.error) {
     return next({
       statusCode: 404,
@@ -91,6 +98,21 @@ const getAllCertified = ('/admin/certified', [validateJwt, rescue(async (_req, r
   return res.status(200).json(certified);
 })]);
 
+const deleteCertified = ('/certified/:id', [
+  validateJwt,
+  rescue(async (req, res, next) => {
+    const { id } = req.params;
+    const certified = await service.deleteCertified(id);
+
+    if (certified.error) {
+      return next({
+        statusCode: 404,
+        message: certified.error,
+      });
+    }
+    return res.status(200).json(certified);
+})]);
+
 module.exports = {
   getCertifiedByUser,
   getCertifiedById,
@@ -98,4 +120,5 @@ module.exports = {
   updateCertified,
   getAllCertified,
   updateStatus,
+  deleteCertified,
 };

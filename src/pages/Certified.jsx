@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid'
 import jwt from 'jsonwebtoken';
@@ -11,7 +11,8 @@ import ButtonAddCertified from '../components/ButtonAddCertified';
 const SECRET_KEY = 'minhachavesecreta';
 
 function Certified() {
-  const { router, getLocalStorageUser, getCertifiedByNumberRegister, certified, loading } = useContext(AppContext);
+  const { router, getLocalStorageUser, getCertifiedByNumberRegister, certified, loading, deleteCertified } = useContext(AppContext);
+  const [userToken, setToken] = useState()
 
   useEffect(() => {
     if (!localStorage.getItem('user')) {
@@ -26,17 +27,27 @@ function Certified() {
       router.push('/');
     }
     getCertifiedByNumberRegister(token)
+    setToken(token)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sumHours = () => {
     const accHours = certified.filter(({status}) => status === "Homologado" )
-    const sum = accHours.reduce((prev, curr) => parseInt(prev.hours) + parseInt(curr.hours))
-    if (accHours.length === 1) {
-      return sum.hours
-    } else {
-      return sum
+    if (accHours.length) {
+      const sum = accHours.reduce((prev, curr) => parseInt(prev.hours) + parseInt(curr.hours))
+      if (accHours.length === 1) {
+        return sum.hours
+      } else {
+        return sum
+      }
     }
+
+    return 0
+  }
+
+  const callFunc = async (id) => {
+    deleteCertified(id, userToken)
+    window.location.reload();
   }
 
   return (
@@ -49,17 +60,17 @@ function Certified() {
       </div>
       <div className="App--Certified box">
         {loading ? <Loading /> : certified.map(({ id, certifiedImage, certifiedName, certifiedDescript, hours, status }) => (
-            <div className="card App--Certified-List" key={uuidv4()}>
-              <div className="card-header">
-                <p className="card-header-title">
-                  ID do Certificado: {id}
-                </p>
-              </div>
-                <div className="card-image App--Certified-image-div">
-                  <figure className="image is-4by3 App--Certified-image ">
-                    <img src={`http://localhost:3001/${certifiedImage}`} alt="Placeholder" />
-                  </figure>
-              </div>
+          <div className="card App--Certified-List" key={uuidv4()}>
+            <div className="card-header">
+              <p className="card-header-title">
+                ID do Certificado: {id}
+              </p>
+            </div>
+              <div className="card-image App--Certified-image-div">
+                <figure className="image is-4by3 App--Certified-image ">
+                  <img src={`http://localhost:3001/${certifiedImage}`} alt="Placeholder" />
+                </figure>
+            </div>
             <div className="card-content">
               <div className="content">
                 <p>Nome do Cerfificado: {certifiedName}</p>
@@ -87,7 +98,7 @@ function Certified() {
                 >
                   <button className="card-footer-item button is-link is-light">Editar</button>
                 </Link>
-                <button className="card-footer-item button is-danger is-light">Deletar</button>
+                <button className="card-footer-item button is-danger is-light" onClick={() => callFunc(id)} >Deletar</button>
               </div>
             </div>
           </div>

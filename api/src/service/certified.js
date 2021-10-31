@@ -55,6 +55,14 @@ const getAllCertified = async () => {
   return certified
 };
 
+const deleteCertified = async (id) => {
+  const certified = await CertifiedModel.deleteCertified(id);
+
+  if (!certified) return { error: 'not_found_certified' };
+
+  return certified
+};
+
 module.exports = {
   registerCertified,
   findCertified,
@@ -62,4 +70,5 @@ module.exports = {
   updateCertified,
   getAllCertified,
   updateStatus,
+  deleteCertified,
 }
