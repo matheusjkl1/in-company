@@ -10,7 +10,7 @@ const SECRET_KEY = require('fs')
 
 module.exports = (id) => {
   const jwtConfig = {
-    expiresIn: '30m',
+    expiresIn: '55m',
     algorithm: 'HS256',
   };
 

@@ -1,5 +1,4 @@
 const rescue = require('express-rescue');
-
 const service = require('../service/user');
 
 const login = ('/login', rescue(async (req, res, next) => {
@@ -23,6 +22,7 @@ const register = ('/register', rescue(async (req, res, next) => {
       message: 'Not Found',
     });
   }
+
   return res.status(200).json(user);
 }));
 
