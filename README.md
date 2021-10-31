@@ -41,3 +41,20 @@ Após isso entre no diretório api com o comando:
 npm run dev
 ```
 
+## Após inciar o projeto será possível realizar o loguin com dois tipos de usuários `admin` ou `user` :
+
+### Usuarios Cadastrados
+
+User
+
+Número da Matrícula:
+12345789
+Senha:
+123456789
+Admin
+
+Número da Matrícula:
+12345789
+Senha:
+123456789
+
