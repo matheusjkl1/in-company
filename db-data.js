@@ -1,7 +1,30 @@
-[{
-  "_id": {
-    "$oid": "617de5091d132692bc3f77a1"
-  },
+use shellteste
+
+db.users.insertMany([
+{
+  "name": "Joao Pedro",
+  "email": "joao@joemail.com",
+  "registrationNumber": "123456789",
+  "password": "25f9e794323b453885f5181f1b624d0b",
+  "role": "user"
+},
+{
+  "name": "admin admin",
+  "email": "admin@admin.com",
+  "registrationNumber": "744336761",
+  "password": "25f9e794323b453885f5181f1b624d0b",
+  "role": "admin"
+},
+{
+  "name": "Carlos Andrade",
+  "email": "Carlos@admin.com",
+  "registrationNumber": "148545651",
+  "password": "25f9e794323b453885f5181f1b624d0b",
+  "role": "user"
+}
+]);
+
+db.certified.insertMany([{
   "registrationNumber": "123456789",
   "certifiedName": "Seminario de historia Update",
   "certifiedImage": "uploads/2021-10-31T03:45:56.667Z.jpeg",
@@ -9,9 +32,6 @@
   "hours": "10",
   "status": "Homologado"
 },{
-  "_id": {
-    "$oid": "617e41a7c00cdbb08571c915"
-  },
   "registrationNumber": "123456789",
   "certifiedName": "Seminario de historia Minas",
   "certifiedImage": "uploads/2021-10-31T07:11:35.835Z.jpeg",
@@ -19,9 +39,6 @@
   "hours": "85",
   "status": "Homologado"
 },{
-  "_id": {
-    "$oid": "617eb1219764a3ae8e0eac60"
-  },
   "registrationNumber": "123456789",
   "certifiedName": "Seminario de historia Rio de Janeiro",
   "certifiedImage": "uploads/2021-10-31T15:07:13.990Z.jpeg",
@@ -29,9 +46,6 @@
   "hours": "75",
   "status": "Não-Homologado"
 },{
-  "_id": {
-    "$oid": "617eb22c9764a3ae8e0eac62"
-  },
   "registrationNumber": "148545651",
   "certifiedName": "Seminario de Geografia",
   "certifiedImage": "uploads/2021-10-31T15:11:40.043Z.jpeg",
@@ -39,13 +53,10 @@
   "hours": "25",
   "status": "Não-Homologado"
 },{
-  "_id": {
-    "$oid": "617eb3e99764a3ae8e0eac63"
-  },
   "registrationNumber": "148545651",
   "certifiedName": "Seminário de Geografia Minas Gerais",
   "certifiedImage": "uploads/2021-10-31T15:19:05.122Z.jpeg",
   "certifiedDescript": "O seminário de pesquisa nada mais é do que um procedimento metodológico que envolve o estudo em grupo sobre um determinado assunto e consiste da apresentação, análise e interpretação de dados sobre o assunto em questão.\n\nNo caso, cada um dos grupos deverá utilizar o software Kpresenter para elaborar uma apresentação de slides com as informações e imagens selecionadas.",
   "hours": "20",
   "status": "Não-Homologado"
-}]
+}])
