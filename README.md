@@ -37,5 +37,7 @@ Após isso entre no diretório api com o comando:
 No diretório do projeto, você deve executar para iniciar o Front-end:
  * `cd api`
 
-### `npm run dev`
+```sh
+npm run dev
+```
 
