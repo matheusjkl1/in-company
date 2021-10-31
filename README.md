@@ -46,7 +46,7 @@ npm run dev
 #### Usuarios Cadastrados
 
 
-*`User`
+`User`
 ```
 Número da Matrícula:
 12345789
@@ -55,9 +55,9 @@ Senha:
 
 ```
 
-*` Admin `
+` Admin `
 ```
-Número da Matrícula:
+[i]Número da Matrícula:
 12345789
 Senha:
 123456789
