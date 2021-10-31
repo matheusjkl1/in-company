@@ -12,7 +12,7 @@ const SECRET_KEY = 'minhachavesecreta';
 
 function Certified() {
   const { router, getLocalStorageUser, getCertifiedByNumberRegister, certified, loading, deleteCertified } = useContext(AppContext);
-  const [userToken, setToken] = useState()
+  const [userToken, setToken] = useState();
 
   useEffect(() => {
     if (!localStorage.getItem('user')) {
@@ -26,27 +26,28 @@ function Certified() {
       localStorage.removeItem('user');
       router.push('/');
     }
-    getCertifiedByNumberRegister(token)
-    setToken(token)
+    getCertifiedByNumberRegister(token);
+    setToken(token);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const sumHours = () => {
-    const accHours = certified.filter(({status}) => status === "Homologado" )
+    const accHours = certified.filter(({status}) => status === "Homologado" );
     if (accHours.length) {
-      const sum = accHours.reduce((prev, curr) => parseInt(prev.hours) + parseInt(curr.hours))
+      const parseHours = accHours.map(({ hours }) => parseInt(hours));
+      const sum = parseHours.reduce((prev, curr) => prev + curr);
       if (accHours.length === 1) {
-        return sum.hours
+        return sum.hours;
       } else {
-        return sum
+        return sum;
       }
     }
 
-    return 0
+    return 0;
   }
 
   const callFunc = async (id) => {
-    deleteCertified(id, userToken)
+    deleteCertified(id, userToken);
     window.location.reload();
   }
 

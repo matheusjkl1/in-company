@@ -29,6 +29,7 @@
     "socket.io": "3.0.4"
   },
   "devDependencies": {
+    "concurrently": "^6.3.0",
     "eslint": "^8.1.0",
     "mocha": "8.4.0",
     "nodemon": "2.0.4",
