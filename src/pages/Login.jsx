@@ -13,7 +13,7 @@ function Login() {
         <div className="App--Login">
           <form className="box App--Login-login-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="field">
-            <label className="label">Numero da Matricula</label>
+            <label className="label">Número da Matrícula:</label>
               <div className="control">
                 <input
                   {...register("registrationNumber", { required: true, maxLength: 9, minLength: 9 })}
@@ -24,7 +24,7 @@ function Login() {
               </div>
             </div>
             <div className="field">
-            <label className="label">Senha</label>
+            <label className="label">Senha:</label>
               <div className="control">
                 <input {...register("password", { required: true, minLength: 8 })}
                   type="password"

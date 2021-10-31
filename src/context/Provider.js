@@ -81,7 +81,7 @@ function Provider({ children }) {
         headers: { authorization: token },
       });
       const { certifiedName, certifiedDescript, certifiedImage, hours} = response.data
-      setCertifiedData({name: certifiedName, descript: certifiedDescript, file: certifiedImage, hours: hours })
+      setCertifiedData({ name: certifiedName, descript: certifiedDescript, file: certifiedImage, hours: hours })
       setCertifiedById(response.data);
     } catch (error) {
       console.log(error);
@@ -111,7 +111,6 @@ function Provider({ children }) {
           },
         }
       );
-      // router.push('/certified/')
     } catch (error) {
       console.log(error);
     }

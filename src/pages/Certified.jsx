@@ -55,7 +55,7 @@ function Certified() {
       <Headers logout />
       <div className="box">
         <div class="message-body">
-          Horas Extra-curriculares até o momento: <strong>{certified.length && sumHours()}h</strong>
+          Horas Extracurriculares até o momento: <strong>{certified.length && sumHours()}h</strong>
         </div>
       </div>
       <div className="App--Certified box">
@@ -73,8 +73,8 @@ function Certified() {
             </div>
             <div className="card-content">
               <div className="content">
-                <p>Nome do Cerfificado: {certifiedName}</p>
-                <div>Status: 
+                <p><strong>Nome do Certificado:</strong> {certifiedName}</p>
+                <div><strong>Status:</strong> 
                   <div className={
                     status === "Não-Homologado" ? "App--Certified-Status message is-warning" : "App--Certified-Status message is-success"
                   }>
@@ -84,11 +84,10 @@ function Certified() {
                   </div>
                 </div>
                 <br/>
-                Descrição:
+                <strong>Descrição:</strong>
                 <br/>
-                {certifiedDescript}
-                <br/>
-                <strong>{hours} Horas </strong>
+                <p className="App--Certified-descript">{certifiedDescript}</p>
+                <strong>Duração: {hours}h </strong>
               </div>
               <div className="card-footer">
                 <Link

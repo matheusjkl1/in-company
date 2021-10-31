@@ -45,7 +45,6 @@ const getCertifiedByUser = ('/certified', [
 ]);
 
 const registerCertified = ('/certified', [validateJwt, upload.single('file'), rescue(async (req, res, next) => {
-  console.log(req.body);
   const certified = await service.registerCertified(req.file.path, req.user, req.body);
   if (certified.error) {
     return next({

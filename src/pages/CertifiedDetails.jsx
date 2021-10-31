@@ -43,11 +43,8 @@ function CertifiedDetails({ match }) {
         router.push('/');
       }
     }, [getLocalStorageUser, router, userToken]);
-  
-    console.log(certifiedData);
 
     const sendData = async (e) => {
-      console.log(certifiedData.hours);
       e.preventDefault();
       const fd = new FormData();
       fd.append('name', certifiedData.name);
@@ -70,6 +67,7 @@ function CertifiedDetails({ match }) {
         localStorage.removeItem('user');
         router.push('/');
       }
+
       getCertifiedDetailsById(match.params.id, token)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -84,7 +82,7 @@ function CertifiedDetails({ match }) {
               <div className="control">
                 <div className="field">
                   <div className="App--Details-details-div-img">
-                    <img className="App--Details-details-img" src={certifiedById && `http://localhost:3001/${certifiedById.certifiedImage}`} alt="certifiedImage" />
+                    <img className="App--Details-details-img" src={certifiedById && `http://localhost:3001/${certifiedData.file}`} alt="certifiedImage" />
                   </div>
                   <label className="label" htmlFor="file" >Imagem do Certificado</label>
                   <div className={!certifiedById ? "control is-loading" : "control"}>
@@ -108,7 +106,7 @@ function CertifiedDetails({ match }) {
                       className="input is-link"
                       placeholder="Nome do Certificado"
                       onChange={handleChange}
-                      defaultValue={certifiedById && certifiedById.certifiedName}
+                      defaultValue={certifiedById && certifiedData.name}
                     />
                   </div>
                 </div>
@@ -121,7 +119,7 @@ function CertifiedDetails({ match }) {
                     id="descript"
                     name="descript"
                     onChange={handleChange}
-                    defaultValue={certifiedById && certifiedById.certifiedDescript}
+                    defaultValue={certifiedById && certifiedData.descript}
                   />
                 </div>
                 <div className="field" htmlFor="hours">
@@ -134,7 +132,7 @@ function CertifiedDetails({ match }) {
                       id="hours"
                       name="hours"
                       onChange={handleChange}
-                      defaultValue={certifiedById && certifiedById.hours}
+                      defaultValue={certifiedById && certifiedData.hours}
                     />
                   </div>
                 </div>
