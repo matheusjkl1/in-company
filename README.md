@@ -35,6 +35,12 @@ Abra [http://localhost:3000](http://localhost:3000) para ver a aplicação no na
 ### Após isso entre no diretório api com o comando:
  * `cd api`
 
+#### Execute o seguinte comando para instalar as dependências de desenvolvimento do Back-end: 
+```sh
+npm install
+```
+### Após installar as dependências, você deve executar o seguinte comando para iniciar o Bront-end:
+
 ```sh
 npm run dev
 ```
@@ -42,7 +48,6 @@ npm run dev
 ### Após inciar o projeto será possível realizar o loguin com dois tipos de usuários `admin` ou `user` :
 
 #### Usuarios Cadastrados
-
 
 `User`
 ```
