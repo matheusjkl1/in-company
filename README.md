@@ -39,7 +39,7 @@ Abra [http://localhost:3000](http://localhost:3000) para ver a aplicação no na
 ```sh
 npm install
 ```
-### Após installar as dependências, você deve executar o seguinte comando para iniciar o Bront-end:
+### Após installar as dependências, você deve executar o seguinte comando para iniciar o Back-end:
 
 ```sh
 npm run dev
