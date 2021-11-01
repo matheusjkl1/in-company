@@ -21,7 +21,7 @@ npm install
 
 ### Na raiz do diretório do projeto, execute o seguinte comando que fará a restauração da base de dados
 ```
-./coupledb
+./copuledb
 ```
 ### No diretório do projeto, você deve executar o seguinte comando para iniciar o Front-end:
 
