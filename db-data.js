@@ -1,4 +1,4 @@
-use shellteste
+use in-company
 
 db.users.insertMany([
 {
